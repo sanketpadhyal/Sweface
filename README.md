@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="iClora logo" width="96" />
+</p>
+
 # SweFace
 
 Private open-source face recognition attendance system for companies.
