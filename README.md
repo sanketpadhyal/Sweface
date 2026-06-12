@@ -1,325 +1,208 @@
 <p align="center">
-  <img src="logo.png" alt="iClora logo" width="96" />
+  <img src="logo.png" alt="SweFace logo" width="96" />
 </p>
 
-# SweFace
+<h1 align="center">SweFace</h1>
 
-Private open-source face recognition attendance system for companies.
+<p align="center">
+  A full-stack face recognition attendance system for companies, built with a mobile app, website, admin panel, backend API, and Firebase Firestore.
+</p>
 
-SweFace is a full-stack attendance platform. It includes a React Native mobile app, a React website with an admin dashboard, and a Node.js backend connected to Firebase Firestore. The system is built to register employees, verify faces, mark attendance, sync data, and give admins clear attendance reports.
+<p align="center">
+  <a href="https://sweface.netlify.app">Website</a>
+  |
+  <a href="https://sweface.netlify.app/admin">Admin Panel</a>
+  |
+  <a href="https://github.com/sanketpadhyal/Sweface/releases/download/v1.0.0/sweface.apk">Download Android App</a>
+</p>
+
+<p align="center">
+  <a href="https://sweface.netlify.app">
+    <img src="https://img.shields.io/badge/Live_Website-sweface.netlify.app-00C853?style=for-the-badge&logo=netlify&logoColor=white" alt="Live website" />
+  </a>
+  <a href="https://sweface.netlify.app/admin">
+    <img src="https://img.shields.io/badge/Admin_Panel-Open_Dashboard-111827?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Admin panel" />
+  </a>
+  <a href="https://github.com/sanketpadhyal/Sweface/releases/download/v1.0.0/sweface.apk">
+    <img src="https://img.shields.io/badge/Android_App-Download_APK-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Download Android APK" />
+  </a>
+</p>
+
+## Overview
+
+SweFace is a complete attendance product designed for real company use. It replaces manual attendance and fingerprint devices with camera-based face verification.
+
+The mobile app is used by a company to register employees and mark attendance. The backend handles authentication, employee storage, face duplicate checks, attendance sync, and Firebase data. The website explains the product, and the admin panel shows attendance reports, employee records, charts, and company settings.
+
+This repository contains the full private open-source codebase for the mobile app, website, admin panel, and backend.
 
 ## Demo Company Login
 
-Use this demo company account to understand the product flow.
+Use this account to test the company flow in the app and admin panel.
 
 | Field | Value |
 | --- | --- |
 | Username | `sweface` |
 | Password | `sweface123` |
 
-This login is used for company access in the mobile app. The same company account can also be used for the admin panel when the backend is configured with this company.
+## Product Links
 
-## Project Modules
+| Product Surface | Link |
+| --- | --- |
+| Website | [sweface.netlify.app](https://sweface.netlify.app) |
+| Admin Panel | [sweface.netlify.app/admin](https://sweface.netlify.app/admin) |
+| Android App | [Download sweface.apk](https://github.com/sanketpadhyal/Sweface/releases/download/v1.0.0/sweface.apk) |
 
-| Module | Folder | Purpose |
-| --- | --- | --- |
-| Mobile App | `SweFace Application/` | Employee registration, face verification, attendance marking, local storage, offline sync |
-| Website and Admin Panel | `Sweface Boarding Website/` | Public website, company setup page, admin dashboard, reports, attendance settings |
-| Backend API | `backend/` | Authentication, employee APIs, attendance sync, admin APIs, Firebase connection |
-| Database | Firebase Firestore | Company records, employee records, face embeddings, attendance sheets |
+## What Happens In The App
 
-## Product Summary
+The SweFace Android app is the main attendance tool.
 
-SweFace helps companies replace manual attendance with face-based attendance. The mobile app works like a kiosk or company attendance device. Employees register once, then scan their face to mark attendance. If the internet is down, attendance is saved locally and synced later.
+1. Company logs in with its company account.
+2. Company registers employees with name, employee ID, department, designation, password, and face scan.
+3. App captures multiple face samples and creates face embeddings on the device.
+4. Backend checks if the same face is already registered.
+5. Employee comes in front of the camera for attendance.
+6. App checks liveness, face quality, blink/smile, and face match.
+7. If the face matches, attendance is saved on the phone.
+8. If internet is available, attendance syncs to the backend.
+9. If internet is not available, attendance stays in a local queue and syncs later.
+10. Admin can see the attendance report from the web dashboard.
 
-The admin panel gives company owners or managers a view of employees, attendance dates, present/absent records, late status, settings, and manual corrections.
+## Key Features
 
-## Main Features
+### Mobile Attendance App
 
-### Company Access
+- Company login with secure token session.
+- Employee registration with profile details.
+- Camera-based face enrollment.
+- Liveness checks before accepting a scan.
+- Face verification before marking attendance.
+- Duplicate face protection.
+- Local employee storage.
+- Offline attendance queue.
+- Automatic backend sync.
+- Company-wise data separation.
 
-- Company login for the mobile attendance app.
-- Admin login for the web admin panel.
-- JWT-based authentication.
-- Multi-company support.
-- Company settings stored in Firebase.
+### Website
 
-### Employee Registration
+- Public product website for SweFace.
+- Home, About, Contact, and Company Setup pages.
+- Download link for the Android app.
+- Admin panel entry point.
+- Responsive React interface.
 
-- Employee name, employee ID, department, designation, and password.
-- Form validation for required employee details.
-- Face enrollment through the camera.
-- Multiple face samples for stronger matching.
-- Duplicate face check before registration.
-- Employee data saved locally and synced to backend.
+### Admin Panel
 
-### Face Verification
-
-- Camera-based face scan.
-- Liveness checks for real face detection.
-- One-face-only validation.
-- Centered face validation.
-- Blink and smile checks.
-- ONNX-based face embedding on the device.
-- Cosine similarity matching against saved employee embeddings.
-
-### Attendance
-
-- Attendance is marked only after a successful face match.
-- Attendance cutoff time and grace minutes are supported.
-- One employee is not marked twice for the same day.
-- Attendance includes timestamp, confidence, similarity, and verification metadata.
-- Late records can be rejected based on company settings.
-
-### Offline Sync
-
-- Attendance is saved locally first.
-- If internet is unavailable, records stay in a local queue.
-- When internet returns, queued attendance is uploaded to the backend.
-- Queue records are removed after successful sync or backend rejection.
-- Network status is checked from the mobile app.
-
-### Admin Dashboard
-
-- Company dashboard with attendance summary.
-- Employee list and employee-wise reports.
+- Company/admin login.
+- Attendance dashboard.
+- Employee-wise attendance reports.
 - Date-wise attendance reports.
 - Present, absent, late, and on-time status.
-- Monthly and employee charts.
-- Attendance settings for expected time and grace minutes.
-- Subscription start and end date support.
+- Charts for monthly and employee attendance.
+- Attendance time and grace minute settings.
+- Subscription start and end date settings.
 - Manual attendance correction.
 - Employee delete support.
 - Browser cache for faster dashboard loading.
 
-## Repository Structure
+### Backend
 
-```text
-SweFace/
-|-- SweFace Application/
-|   |-- App.js
-|   `-- src/
-|       |-- pages/
-|       |-- face verification/
-|       |-- services/
-|       |-- hooks/
-|       |-- components/
-|       `-- assets/
-|
-|-- Sweface Boarding Website/
-|   |-- src/
-|   |   |-- components/
-|   |   `-- admin panel/
-|   `-- public/
-|
-|-- backend/
-|   |-- index.js
-|   |-- auth/
-|   |-- admin-panel/
-|   |-- attendance/
-|   |-- companies/
-|   |-- firebase/
-|   `-- user-face/
-|
-`-- README.md
-```
+- Company authentication.
+- Admin authentication.
+- Employee registration API.
+- Employee list API.
+- Duplicate face check API.
+- Attendance sync API.
+- Admin dashboard APIs.
+- Company settings APIs.
+- Firebase Firestore integration.
+- Security middleware, CORS, JWT, and rate limiting.
 
-## Mobile App Flow
+## Project Structure
 
-### 1. App Start
-
-The app starts from `App.js` and opens the splash screen. It checks saved data such as company session, company profile, employees, attendance queue, and last sync status.
-
-### 2. Company Login
-
-The company enters username and password. For demo use:
-
-| Username | Password |
+| Folder | Description |
 | --- | --- |
-| `sweface` | `sweface123` |
+| `SweFace Application/` | Expo React Native mobile app for registration, face verification, and attendance |
+| `Sweface Boarding Website/` | React website and admin dashboard |
+| `backend/` | Node.js Express backend connected to Firebase |
 
-After login, the backend returns a token and company details. The app saves the session and company settings locally.
+## Main Files
 
-### 3. Employee Registration
+### Mobile App
 
-The company can register an employee from the onboarding page. The form collects employee details and then starts face registration.
-
-During registration:
-
-- The app validates employee details.
-- The camera opens for face capture.
-- The app checks liveness.
-- Multiple face embeddings are created.
-- The app checks with the backend if the face already exists.
-- If the face is new, employee data is saved locally and uploaded.
-
-### 4. Face Verification for Attendance
-
-When an employee comes for attendance:
-
-- The camera captures the face.
-- The app checks that the face is real and usable.
-- The app creates a live face embedding.
-- The live embedding is compared with saved employee embeddings.
-- If the match is strong enough, attendance is marked.
-
-### 5. Attendance Storage
-
-Attendance is first saved on the device. This makes the app reliable even when the internet connection is weak.
-
-Each attendance record can include:
-
-- Employee ID
-- Employee name
-- Company name
-- Date
-- Timestamp
-- Confidence score
-- Similarity score
-- Sync status
-
-### 6. Sync to Backend
-
-The app syncs attendance records to the backend when internet is available. If the backend accepts the records, they are removed from the local queue. If the employee is late based on company settings, the backend can reject the record and the app clears it from the queue.
-
-## Website and Admin Panel
-
-The website is built with React. It contains both public product pages and the admin dashboard.
-
-### Public Website
-
-Main routes:
-
-| Route | Purpose |
+| File | Purpose |
 | --- | --- |
-| `/` | Home page |
-| `/about` | Product explanation |
-| `/contact` | Contact and project links |
-| `/start-company-login` | Company setup information |
-| `/admin` | Admin panel |
+| `SweFace Application/App.js` | App navigation and screen setup |
+| `src/pages/onboardingpage.js` | Company login, employee registration, local employee management |
+| `src/face verification/FaceVerificationPage.js` | Camera scan, liveness, face match, attendance marking |
+| `src/services/faceEngine.js` | ONNX model loading, face embeddings, liveness and matching logic |
+| `src/services/storage.js` | Local sessions, employees, attendance records, sync queue |
+| `src/services/syncService.js` | Uploads queued attendance records to backend |
 
-### Admin Panel
+### Website and Admin Panel
 
-The admin panel is used by company owners or managers. It connects to the backend and shows company attendance data.
-
-Admin panel capabilities:
-
-- Login and session validation.
-- Dashboard summary.
-- Date filter for attendance reports.
-- Employee search.
-- Employee attendance details.
-- Date attendance details.
-- Manual present/absent update.
-- Expected attendance time update.
-- Grace minute update.
-- Subscription date update.
-- Employee delete.
-- Cached dashboard data using IndexedDB.
-
-## Backend Architecture
-
-The backend is built with Express and Firebase Admin. It protects routes with JWT authentication, applies rate limits, handles CORS, and stores data in Firestore.
-
-### Main Backend Files
-
-| File | Responsibility |
+| File | Purpose |
 | --- | --- |
-| `backend/index.js` | Starts the server, configures security middleware, connects routes |
-| `backend/firebase/admin.js` | Initializes Firebase Admin and Firestore |
-| `backend/auth/login.js` | Mobile company login and session validation |
-| `backend/admin-panel/auth/adminpanel-auth.js` | Admin login, cookie/session handling, logout |
-| `backend/user-face/user-and-face-entry.js` | Employee registration, employee list, duplicate face check |
-| `backend/attendance/attendance.js` | Attendance sync and today attendance |
-| `backend/admin-panel/adminpanel.js` | Dashboard, reports, settings, manual attendance update, employee delete |
-| `backend/companies/companies.js` | Reads company configuration |
-| `backend/companies/firestoreCompanies.js` | Syncs company data into Firestore |
-| `backend/companies/companySettings.js` | Reads and saves attendance/subscription settings |
+| `src/App.js` | Website routes |
+| `src/components/home.jsx` | Landing page |
+| `src/components/StartCompanyLogin.jsx` | Company setup information |
+| `src/admin panel/adminpanel.jsx` | Full admin dashboard |
 
-### API Groups
+### Backend
 
-| API Group | Purpose |
+| File | Purpose |
 | --- | --- |
-| `/auth` | Mobile company authentication |
-| `/admin-panel/auth` | Admin authentication |
-| `/admin-panel` | Dashboard, settings, reports, manual corrections |
-| `/employees` | Employee registration, employee list, duplicate face check |
-| `/attendance` | Attendance sync and attendance read APIs |
-| `/health` | Backend health check |
-| `/info` | Public company information |
+| `backend/index.js` | Express server and route setup |
+| `backend/auth/login.js` | Mobile company login |
+| `backend/admin-panel/auth/adminpanel-auth.js` | Admin login and logout |
+| `backend/user-face/user-and-face-entry.js` | Employee registration and duplicate face check |
+| `backend/attendance/attendance.js` | Attendance sync |
+| `backend/admin-panel/adminpanel.js` | Reports, settings, manual updates, employee delete |
+| `backend/firebase/admin.js` | Firebase Admin connection |
 
 ## Firebase Data Model
 
-SweFace uses Firestore as the main cloud database.
+SweFace uses Firebase Firestore as the main database.
 
-| Collection Path | Purpose |
+| Firestore Path | Stores |
 | --- | --- |
-| `companies/{companyId}` | Company record, login metadata, admin settings |
+| `companies/{companyId}` | Company profile and settings |
 | `companies/{companyId}/users/{employeeDocumentId}` | Employee profile records |
-| `faceEmbeddings/{companyNameOrId}/users/{employeeDocumentId}` | Face embeddings for matching and duplicate checks |
+| `faceEmbeddings/{companyNameOrId}/users/{employeeDocumentId}` | Face embeddings for matching |
 | `attendance/{companyName}/attendance/{date}` | Daily attendance sheet |
 
-Daily attendance sheets include:
+## Tech Stack
 
-- Total employees
-- Attended count
-- Not attended count
-- Present employees
-- Absent employees
-- Attendance timestamps
-- Last update time
-
-## Full System Flow
-
-1. Company credentials are configured in the backend.
-2. Backend syncs the company into Firestore.
-3. Company logs in from the mobile app using the demo or configured login.
-4. Admin can open the web admin panel with the company login.
-5. Employee is registered in the mobile app.
-6. App captures face data and creates embeddings.
-7. Backend checks if the same face already exists.
-8. Employee profile and face embeddings are saved.
-9. Employee scans face for attendance.
-10. App verifies liveness and matches the face locally.
-11. Attendance is saved locally first.
-12. Attendance syncs to backend when online.
-13. Backend stores attendance in Firestore.
-14. Admin panel reads Firestore-backed reports through backend APIs.
-
-## Technology Stack
-
-| Layer | Technology |
+| Area | Technology |
 | --- | --- |
-| Mobile | Expo, React Native, Expo Camera |
-| Local Storage | AsyncStorage, Expo SecureStore |
+| Mobile App | Expo, React Native, Expo Camera |
 | Face Engine | ONNX Runtime React Native, MobileFaceNet/ArcFace model |
+| Local Storage | AsyncStorage, Expo SecureStore |
 | Website | React, React Router, Recharts, Lenis |
 | Backend | Node.js, Express, Firebase Admin |
 | Security | JWT, Helmet, CORS, Express Rate Limit |
 | Database | Firebase Firestore |
 
-## Security and Privacy Notes
+## Security And Privacy
 
-- Raw camera photos are not the main stored identity data.
-- Face data is converted into embeddings for matching.
-- Company data is separated by company ID and company folder name.
-- JWT is used for protected mobile and admin APIs.
-- Rate limits protect login and admin routes.
-- `.env` files must stay private.
-- Firebase service account files must stay private.
-- Demo credentials should be replaced for real production use.
-- Firebase keys should be rotated if they are ever exposed.
+- Face scans are converted into embeddings for matching.
+- Company data is separated by company identity.
+- Protected routes use JWT authentication.
+- Login and admin routes use rate limiting.
+- Firebase service account files and `.env` files must stay private.
+- Demo credentials are for testing and should be replaced for production.
 
 ## Current Status
 
-SweFace is a working full-stack project:
+SweFace is a working full-stack attendance system.
 
-- Mobile app can log in companies, register employees, verify faces, and mark attendance.
-- Backend can authenticate users, store employees, check duplicate faces, sync attendance, and serve admin reports.
-- Website can show product pages and run the admin dashboard.
-- Firestore stores company, employee, face embedding, and attendance data.
+- Android app is available through the release APK.
+- Website is live.
+- Admin panel is live.
+- Backend supports login, employee records, face duplicate checks, attendance sync, reports, and settings.
+- Firestore stores company, employee, face, and attendance data.
 - Offline attendance and later sync are supported.
 
-## Visibility
+## Repository Visibility
 
-This repository is private open source. The code is available inside this private project, but secrets, Firebase credentials, company passwords, and production environment files should not be exposed publicly.
+This is a private open-source project. The full app, website, admin panel, and backend are included in this repository, but secrets, Firebase credentials, company passwords, and production environment files should never be exposed publicly.
