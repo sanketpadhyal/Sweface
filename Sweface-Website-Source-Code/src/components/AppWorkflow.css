@@ -1,0 +1,250 @@
+.workflow-section {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 10px 0 84px;
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.workflow-copy,
+.workflow-panel,
+.metric-card {
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 16px 42px rgba(14, 32, 12, 0.12);
+}
+
+.workflow-copy {
+  background: #111111;
+  color: #ffffff;
+  padding: 32px;
+}
+
+.workflow-copy h2 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.06;
+  letter-spacing: 0;
+}
+
+.workflow-copy > p:last-child {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.workflow-panel {
+  background: rgba(255, 255, 255, 0.82);
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.workflow-step {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 16px;
+  border-radius: 18px;
+  background: #ffffff;
+}
+
+.workflow-step span {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #7ed321;
+  color: #111111;
+  font-weight: 900;
+}
+
+.workflow-step h3 {
+  margin: 0 0 6px;
+  color: #111111;
+  font-size: 18px;
+}
+
+.workflow-step p {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.62);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.metric-card {
+  background: #ffffff;
+  padding: 22px;
+  display: grid;
+  gap: 8px;
+}
+
+.metric-card strong {
+  color: #111111;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.metric-card span {
+  color: rgba(0, 0, 0, 0.58);
+  font-weight: 700;
+}
+
+@media (min-width: 861px) and (prefers-reduced-motion: no-preference) {
+  .workflow-copy {
+    animation: workflowLeftIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .workflow-panel {
+    animation: workflowRightIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  }
+
+  .workflow-step {
+    animation: workflowStepIn 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease;
+  }
+
+  .workflow-step:nth-child(1) {
+    animation-delay: 0.18s;
+  }
+
+  .workflow-step:nth-child(2) {
+    animation-delay: 0.26s;
+  }
+
+  .workflow-step:nth-child(3) {
+    animation-delay: 0.34s;
+  }
+
+  .workflow-step:nth-child(4) {
+    animation-delay: 0.42s;
+  }
+
+  .workflow-step:hover {
+    transform: translateX(8px);
+    box-shadow: 0 12px 28px rgba(14, 32, 12, 0.1);
+  }
+
+  .metric-card {
+    animation: metricRiseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease;
+  }
+
+  .metric-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .metric-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .metric-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .metric-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(14, 32, 12, 0.14);
+  }
+}
+
+@keyframes workflowLeftIn {
+  from {
+    opacity: 0;
+    filter: blur(16px);
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes workflowRightIn {
+  from {
+    opacity: 0;
+    filter: blur(16px);
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes workflowStepIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes metricRiseIn {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 860px) {
+  .workflow-section {
+    width: min(100% - 28px, 560px);
+    padding-bottom: 58px;
+  }
+
+  .workflow-grid,
+  .metric-row {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-copy,
+  .workflow-panel,
+  .metric-card {
+    border-radius: 22px;
+  }
+
+  .workflow-copy {
+    padding: 24px;
+  }
+
+  .workflow-copy h2 {
+    font-size: 29px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workflow-copy,
+  .workflow-panel,
+  .workflow-step,
+  .metric-card {
+    animation: none;
+  }
+}

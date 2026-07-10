@@ -1,0 +1,25 @@
+{
+  "short_name": "SweFace",
+  "name": "SweFace",
+  "icons": [
+    {
+      "src": "sweface-favicon.png",
+      "sizes": "1080x1080",
+      "type": "image/png"
+    },
+    {
+      "src": "sweface-favicon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "sweface-favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#7ed321",
+  "background_color": "#7ed321"
+}

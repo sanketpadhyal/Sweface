@@ -1,0 +1,9 @@
+.App {
+  min-height: 100vh;
+}
+
+.app-canvas {
+  background: #7ED321;
+  min-height: 100vh;
+  padding: 1px 0 0;
+}
