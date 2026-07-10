@@ -1,0 +1,17 @@
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.expo/
+
+.env
+.env.local
+.env.*.local
+google-services.json
+GoogleService-Info.plist
+android/app/google-services.json
+ios/GoogleService-Info.plist
+service-account*.json
+firebase-adminsdk*.json

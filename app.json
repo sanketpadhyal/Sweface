@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "Sweface",
+    "slug": "sweface-application",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#7ED321"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sweface.application"
+    },
+    "android": {
+      "package": "com.sweface.application",
+      "softwareKeyboardLayoutMode": "pan",
+      "usesCleartextTraffic": true,
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/adaptive-foreground.png",
+        "backgroundColor": "#7ED321"
+      },
+      "permissions": [
+        "CAMERA",
+        "INTERNET"
+      ]
+    },
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#7ED321",
+      "translucent": false
+    },
+    "androidNavigationBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#F6F8FB",
+      "enforceContrast": false
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "SweFace needs camera access for face registration, liveness checks, and attendance verification."
+        }
+      ]
+    ]
+  }
+}
