@@ -34,15 +34,12 @@ SweFace is a complete attendance product designed for real company use. It repla
 
 The mobile app is used by a company to register employees and mark attendance. The backend handles authentication, employee storage, face duplicate checks, attendance sync, and Firebase data. The website explains the product, and the admin panel shows attendance reports, employee records, charts, and company settings.
 
-This repository contains the full private open-source codebase for the mobile app, website, admin panel, and backend.
+This repository contains the full open-source codebase for the mobile app, website, admin panel, and backend.
 
 > [!IMPORTANT]
 > **Open Source Notice**
-> The **mobile application and backend** are open sourced in this repository.
-> The **frontend website and admin panel** are open sourced here:
-> **https://github.com/sanketpadhyal/Sweface-Website-Source-Code.git**
-> 
-> Explore both repositories to get the complete SweFace ecosystem and implementation details.
+> The **mobile application, website, admin panel, and backend** are open sourced in this repository.
+> You can explore the full SweFace ecosystem here, run the code locally, or try the live website, admin panel, and Android app using the links above.
 
 ## Demo Company Login
 
@@ -213,4 +210,4 @@ SweFace is a working full-stack attendance system.
 
 ## Repository Visibility
 
-This is a private open-source project. The full app, website, admin panel, and backend are included in this repository, but secrets, Firebase credentials, company passwords, and production environment files should never be exposed publicly.
+This is an open-source project. The full app, website, admin panel, and backend are included in this repository so developers can study, run, and try SweFace end to end. Secrets, Firebase credentials, company passwords, and production environment files should never be exposed publicly.
