@@ -36,6 +36,14 @@ The mobile app is used by a company to register employees and mark attendance. T
 
 This repository contains the full private open-source codebase for the mobile app, website, admin panel, and backend.
 
+> [!IMPORTANT]
+> **Open Source Notice**
+> The **mobile application and backend** are open sourced in this repository.
+> The **frontend website and admin panel** are open sourced here:
+> **https://github.com/sanketpadhyal/Sweface-Website-Source-Code.git**
+> 
+> Explore both repositories to get the complete SweFace ecosystem and implementation details.
+
 ## Demo Company Login
 
 Use this account to test the company flow in the app and admin panel.
