@@ -50,6 +50,8 @@ Use this account to test the company flow in the app and admin panel.
 | Username | `sweface` |
 | Password | `sweface123` |
 
+these are only for public use.
+
 ## Product Links
 
 | Product Surface | Link |
