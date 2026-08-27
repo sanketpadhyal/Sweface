@@ -9,18 +9,18 @@
 </p>
 
 <p align="center">
-  <a href="https://sweface.netlify.app">Website</a>
+  <a href="https://sweface.sanketpadhyal.in">Website</a>
   |
-  <a href="https://sweface.netlify.app/admin">Admin Panel</a>
+  <a href="https://admin.sweface.sanketpadhyal.in">Admin Panel</a>
   |
   <a href="https://github.com/sanketpadhyal/Sweface/releases/download/v1.0.0/sweface.apk">Download Android App</a>
 </p>
 
 <p align="center">
-  <a href="https://sweface.netlify.app">
-    <img src="https://img.shields.io/badge/Live_Website-sweface.netlify.app-00C853?style=for-the-badge&logo=netlify&logoColor=white" alt="Live website" />
+  <a href="https://sweface.sanketpadhyal.in">
+    <img src="https://img.shields.io/badge/Live_Website-sweface.sanketpadhyal.in-00C853?style=for-the-badge" alt="Live website" />
   </a>
-  <a href="https://sweface.netlify.app/admin">
+  <a href="https://admin.sweface.sanketpadhyal.in">
     <img src="https://img.shields.io/badge/Admin_Panel-Open_Dashboard-111827?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Admin panel" />
   </a>
   <a href="https://github.com/sanketpadhyal/Sweface/releases/download/v1.0.0/sweface.apk">
@@ -56,8 +56,8 @@ these are only for public use.
 
 | Product Surface | Link |
 | --- | --- |
-| Website | [sweface.netlify.app](https://sweface.netlify.app) |
-| Admin Panel | [sweface.netlify.app/admin](https://sweface.netlify.app/admin) |
+| Website | [sweface.sanketpadhyal.in](https://sweface.sanketpadhyal.in) |
+| Admin Panel | [admin.sweface.sanketpadhyal.in](https://admin.sweface.sanketpadhyal.in) |
 | Android App | [Download sweface.apk](https://github.com/sanketpadhyal/Sweface/releases/download/v1.0.0/sweface.apk) |
 
 ## What Happens In The App
